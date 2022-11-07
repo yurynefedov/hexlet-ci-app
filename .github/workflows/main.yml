@@ -2,12 +2,9 @@ name: Hexlet CI APP
 on: push
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ ubuntu-latest, macos-latest ]
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: snyk/actions/node@master
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
